@@ -10,7 +10,7 @@ html,body{margin:0;padding:0;background:#030507;overflow:hidden}
 </style>
 </head>
 <body>
-<iframe id="site" src="index-with-mmr.html" title="RaZeRektU Website"></iframe>
+<iframe id="site" src="index-with-mmr.html?v=20260920-2" title="RaZeRektU Website"></iframe>
 <script>
 const iframe=document.getElementById('site');
 iframe.addEventListener('load',()=>{
@@ -93,8 +93,27 @@ iframe.addEventListener('load',()=>{
     img.src=src;
   });
 
+  const fixLinks=()=>{
+    const links=d.querySelectorAll('a');
+    links.forEach(link=>{
+      const label=link.textContent.trim().replace(/\\s+/g,' ');
+      if(label==='WATCH RLBS'){
+        link.href='https://discord.gg/ht4SaHGaf2';
+        link.target='_blank';
+        link.rel='noopener';
+      }
+      if(label==='JOIN THE COMMUNITY'){
+        link.href='https://discord.gg/8WpbjTtqhD';
+        link.target='_blank';
+        link.rel='noopener';
+      }
+    });
+  };
+
+  fixLinks();
   fixBotAndStrayText();
   new MutationObserver(()=>{
+    fixLinks();
     fixBotAndStrayText();
   }).observe(d.body,{subtree:true,childList:true,characterData:true});
 });
