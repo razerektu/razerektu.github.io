@@ -59,15 +59,15 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 
 #minecraft{position:relative;overflow:hidden;isolation:isolate;background:#03070a}
 .minecraft-bg{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
-.minecraft-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,10,.42),rgba(3,7,10,.58));z-index:2}
+.minecraft-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,10,.24),rgba(3,7,10,.38));z-index:2}
 .minecraft-track{display:flex;gap:18px;width:max-content;height:100%;align-items:stretch;animation:minecraftSlide 82s linear infinite;will-change:transform}
-.minecraft-bg img{flex:0 0 min(48vw,720px);width:min(48vw,720px);height:100%;object-fit:cover;opacity:.24;filter:saturate(.88) brightness(.82);border-radius:14px}
+.minecraft-bg img{flex:0 0 min(48vw,720px);width:min(48vw,720px);height:100%;object-fit:cover;opacity:.34;filter:saturate(.92) brightness(.95);border-radius:14px}
 @keyframes minecraftSlide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
 .minecraft-wrap{position:relative;z-index:3}
 .minecraft-feature{margin-top:38px;display:grid;grid-template-columns:360px 1fr;gap:30px;align-items:center;padding:28px;border:1px solid rgba(38,74,55,.72);border-radius:18px;background:rgba(5,12,16,.43);box-shadow:0 20px 70px rgba(0,0,0,.28);overflow:hidden;backdrop-filter:blur(2px)}
 .minecraft-logo{min-height:300px;display:grid;place-items:center;background:radial-gradient(circle,rgba(45,105,72,.16),transparent 68%);border-radius:14px}
 .minecraft-logo img{width:92%;max-height:330px;object-fit:contain;filter:drop-shadow(0 0 28px rgba(80,255,150,.12))}
-.minecraft-copy h3{font-family:'MinecraftCustom',sans-serif!important;font-size:32px;letter-spacing:.055em;margin:12px 0}
+.minecraft-copy h3{font-family:'MinecraftCustom',sans-serif!important;font-size:32px;letter-spacing:.12em;margin:12px 0}
 .minecraft-copy p{color:#b4c8ba;font-size:18px;max-width:650px}
 @media(prefers-reduced-motion:reduce){.minecraft-track{animation:none;transform:translateX(0)}}
 .rlbs-logo{width:min(430px,85%);max-height:180px;object-fit:contain;display:block;margin:0 0 18px;filter:drop-shadow(0 0 24px rgba(79,134,255,.18))}
@@ -94,7 +94,7 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 .rlbs-showcase{margin-top:34px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:30px;align-items:stretch}
 .rlbs-copy,.rlbs-video-wrap{border:0;border-radius:18px;background:rgba(5,12,21,.72);box-shadow:0 20px 70px rgba(0,0,0,.28);overflow:hidden}
 .rlbs-copy{padding:34px;display:flex;flex-direction:column;justify-content:center}
-.rlbs-logo-tight{width:min(100%,390px);height:auto;display:block;margin:-2px 0 12px;filter:drop-shadow(0 0 22px rgba(65,112,255,.24))}
+.rlbs-logo-tight{width:min(100%,430px);height:auto;display:block;margin:-4px 0 18px;filter:drop-shadow(0 0 22px rgba(65,112,255,.24))}
 .rlbs-copy h3{font-family:'PirulenCustom',Orbitron,sans-serif!important;font-size:30px;margin:14px 0}
 .rlbs-copy p{color:#a8bacb;font-size:18px;max-width:650px}
 .rlbs-section .section-tag,.rlbs-section .rlbs-title,.rlbs-section .tag,.rlbs-section .rlbs-copy h3,.rlbs-section .bot-copy h3,.rlbs-section .bot-line,.rlbs-section .btn{font-family:'PirulenCustom',Orbitron,sans-serif!important}
@@ -162,7 +162,6 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
     <div class="rlbs-showcase">
       <div class="rlbs-copy">
         <img class="rlbs-logo-tight" src="rlbs-logo.png" alt="Rocket League Bot Series logo">
-        <span class="tag">RLBS</span>
         <h3>BOT VS BOT. CHAOS INCLUDED.</h3>
         <p>Rocket League Bot Series is a Rocket League entertainment series built around bot competition and community-driven events.</p>
         <div class="rlbs-custom-bot">
