@@ -337,8 +337,15 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 <span class="section-tag">PLAYER PROFILE</span><h2>Rocket League</h2><p class="lead">A multi-mode Grand Champion player competing across standard and Extra Modes playlists.</p>
 <div class="logo-stage"><div class="logo-box"><img src="logo-color.png" alt="RaZe logo"></div>
 <div><div class="grid">
-<div class="card"><b>GC2</b><small>2v2 • 1583 MMR</small></div><div class="card"><b>GC2</b><small>Hoops • 1157 MMR</small></div><div class="card"><b>GC1</b><small>Rumble • 1199 MMR</small></div><div class="card"><b>GC1</b><small>Snow Day • 1105 MMR</small></div>
-<div class="card"><b>GC1</b><small>Dropshot • 1056 MMR</small></div><div class="card"><b>C2</b><small>3v3 • 1184 MMR</small></div><div class="card"><b>D2</b><small>1v1 • 895 MMR</small></div><div class="card"><b>—</b><small>Heatseeker • 690 MMR</small></div>
+<div><div class="grid">
+<div class="card"><b id="rank-2v2">Loading...</b><small>2v2</small></div>
+<div class="card"><b id="rank-hoops">Loading...</b><small>Hoops</small></div>
+<div class="card"><b id="rank-rumble">Loading...</b><small>Rumble</small></div>
+<div class="card"><b id="rank-snow-day">Loading...</b><small>Snow Day</small></div>
+<div class="card"><b id="rank-dropshot">Loading...</b><small>Dropshot</small></div>
+<div class="card"><b id="rank-3v3">Loading...</b><small>3v3</small></div>
+<div class="card"><b id="rank-1v1">Loading...</b><small>1v1</small></div>
+<div class="card"><b id="rank-4v4">Loading...</b><small>4v4 Quads</small></div>
 </div></div></div>
 </div></section>
 
@@ -493,4 +500,42 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
   schedule();
 })();
 </script>
-</body></html>
+  <script>
+document.addEventListener("DOMContentLoaded", async () => {
+  try {
+    const response = await fetch("ranks.json?t=" + Date.now());
+
+    if (!response.ok) {
+      throw new Error("Could not load ranks.json");
+    }
+
+    const data = await response.json();
+    const ranks = data.ranks || data;
+
+    const rankMap = {
+      "rank-1v1": ranks["1v1"],
+      "rank-2v2": ranks["2v2"],
+      "rank-3v3": ranks["3v3"],
+      "rank-hoops": ranks["Hoops"],
+      "rank-rumble": ranks["Rumble"],
+      "rank-dropshot": ranks["Dropshot"],
+      "rank-snow-day": ranks["Snow Day"],
+      "rank-4v4": ranks["4v4 Quads"]
+    };
+
+    for (const [id, rank] of Object.entries(rankMap)) {
+      const element = document.getElementById(id);
+
+      if (element && rank) {
+        element.textContent = rank;
+      }
+    }
+
+  } catch (error) {
+    console.error("Rocket League rank update failed:", error);
+  }
+});
+</script>
+
+</body>
+</html>
