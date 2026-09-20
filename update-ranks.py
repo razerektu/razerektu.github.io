@@ -51,6 +51,7 @@ for segment in segments:
 
     stats = segment.get("stats", {})
     tier = stats.get("tier", {})
+    rating = stats.get("rating", {})
 
     rank_name = (
         tier.get("metadata", {}).get("rankName")
@@ -61,10 +62,26 @@ for segment in segments:
         or tier.get("displayValue")
     )
 
+    mmr = rating.get("value")
+
+    if mmr is None:
+        mmr_display = rating.get("displayValue")
+        if mmr_display:
+            try:
+                mmr = int(str(mmr_display).replace(",", ""))
+            except ValueError:
+                mmr = None
+
     if not rank_name:
         raise RuntimeError(f"Could not determine rank for playlist {playlist_id}")
 
-    ranks[RANKED_PLAYLIST_IDS[playlist_id]] = rank_name
+    if mmr is None:
+        raise RuntimeError(f"Could not determine MMR for playlist {playlist_id}")
+
+    ranks[RANKED_PLAYLIST_IDS[playlist_id]] = {
+        "rank": rank_name,
+        "mmr": mmr,
+    }
 
 expected_modes = set(RANKED_PLAYLIST_IDS.values())
 missing = expected_modes - set(ranks.keys())
@@ -77,5 +94,5 @@ with open("ranks.json", "w", encoding="utf-8") as file:
     file.write("\n")
 
 print("\nUpdated ranks.json:")
-for mode, rank in ranks.items():
-    print(f"  {mode}: {rank}")
+for mode, info in ranks.items():
+    print(f"  {mode}: {info['rank']} ({info['mmr']} MMR)")
