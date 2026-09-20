@@ -253,6 +253,40 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 }
 </style>
 
+<style>
+/* v24: supplied display fonts + independent RLBS card/text carousel */
+@font-face{font-family:'PirulenRG';src:url('Pirulen-RG.otf') format('opentype');font-display:swap;font-weight:400;font-style:normal}
+@font-face{font-family:'MinecraftV24';src:url('Minecraft.ttf') format('truetype');font-display:swap;font-weight:400;font-style:normal}
+#rlbs .rlbs-title{font-family:'PirulenRG','PirulenCustom',Orbitron,sans-serif!important;letter-spacing:.02em!important}
+#minecraft .minecraft-title,
+#minecraft .minecraft-copy h3{font-family:'MinecraftV24','MinecraftCustom',sans-serif!important;letter-spacing:.06em!important}
+/* keep the section micro-labels in the nav/supporting font */
+#rlbs .section-tag,#rlbs .tag,#minecraft .section-tag,#minecraft .minecraft-copy .tag{font-family:Rajdhani,'Segoe UI',sans-serif!important}
+
+/* RLBS collection presentation */
+.bot-feature{position:relative;margin-top:30px;display:grid;grid-template-columns:minmax(260px,380px) 1fr;gap:40px;align-items:center;border:1px solid rgba(63,103,135,.9);border-radius:18px;background:linear-gradient(135deg,rgba(4,12,22,.94),rgba(2,5,10,.97));padding:38px 30px 30px;overflow:hidden;box-shadow:inset 0 0 0 1px rgba(0,229,255,.025),0 20px 70px rgba(0,0,0,.25)}
+.bot-feature:before{content:"";position:absolute;inset:10px;border:1px solid rgba(36,65,90,.32);border-radius:12px;pointer-events:none}
+.bot-card-wrap{position:relative;display:grid;place-items:center;min-height:500px}
+.bot-card-stage{position:relative;width:min(100%,330px);height:500px;display:grid;place-items:center}
+.bot-card-stage img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 0 28px rgba(48,112,255,.18));transition:transform .82s cubic-bezier(.22,.8,.24,1),opacity .82s ease;will-change:transform,opacity}
+.bot-card-stage img.is-current{opacity:1;transform:translate3d(0,0,0);z-index:2}
+.bot-card-stage img.is-next{opacity:0;transform:translate3d(68px,0,0);z-index:1}
+.bot-card-stage img.is-exit{opacity:0;transform:translate3d(-68px,0,0);z-index:3}
+.bot-copy{position:relative;min-height:250px;display:flex;flex-direction:column;justify-content:center}
+.bot-copy-panel{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;transition:transform .56s cubic-bezier(.22,.8,.24,1),opacity .56s ease;will-change:transform,opacity}
+.bot-copy-panel.is-current{opacity:1;transform:translate3d(0,0,0);z-index:2}
+.bot-copy-panel.is-next{opacity:0;transform:translate3d(0,14px,0);z-index:1}
+.bot-copy-panel.is-exit{opacity:0;transform:translate3d(-14px,0,0);z-index:3}
+.bot-copy h3{font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif!important;font-size:34px;margin:12px 0}
+.bot-copy p{color:#a8bacb;font-size:18px;max-width:650px}
+.bot-line{font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif!important;color:#35d7ff!important;letter-spacing:0}
+.bot-collection-note{color:#dceaf5!important;font-family:Rajdhani,'Segoe UI',sans-serif!important;font-size:16px!important;line-height:1.45;margin:18px 0 4px;max-width:620px}
+.bot-dots{display:flex;gap:7px;margin-top:18px;position:relative;z-index:5}
+.bot-dot{width:7px;height:7px;border:1px solid #3d617c;border-radius:50%;background:transparent;padding:0;cursor:pointer;transition:.2s}
+.bot-dot.is-active{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 10px rgba(0,229,255,.45)}
+@media(max-width:900px){.bot-feature{grid-template-columns:1fr;padding:30px 22px}.bot-card-wrap{min-height:440px}.bot-card-stage{height:440px}.bot-copy{min-height:280px}.bot-dots{justify-content:center}}
+@media(prefers-reduced-motion:reduce){.bot-card-stage img,.bot-copy-panel{transition:none!important}}
+</style>
 </head>
 <body>
 <nav><div class="wrap nav"><a class="brand" href="#"><span>RAZE</span>REKTU</a><div class="navlinks"><a href="#rocketleague">ROCKET LEAGUE</a><a href="#rlbs">RLBS</a><a href="#minecraft">MINECRAFT</a><a href="#socials">FIND RAZE</a></div></div></nav>
@@ -310,17 +344,25 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
       </div>
     </div>
 
-    <div class="bot-feature">
+    <div class="bot-feature" aria-label="RLBS bot card collection">
       <div class="bot-card-wrap">
-        <img src="RLBS_card_RaZeBot.png" alt="RaZe Bot RLBS character card" class="bot-card">
+        <div class="bot-card-stage" aria-live="polite">
+          <img class="is-current" src="RLBS_card_RaZeBot.png" alt="RaZe Bot RLBS character card">
+          <img class="is-next" src="card-10veszn.png" alt="10veSZN RLBS character card">
+        </div>
       </div>
       <div class="bot-copy">
-        <span class="tag">RLBS ORIGINAL</span>
-        <h3>MEET RAZE BOT</h3>
-        <p>One of the faces of the Rocket League Bot Series — built for the arena, made for the show.</p>
-        <p class="bot-line">ORIGINAL BOT • NO WEAKNESSES ;)</p>
+        <div class="bot-copy-panel is-current">
+          <span class="tag">RLBS ORIGINAL</span>
+          <h3>MEET RAZE BOT</h3>
+          <p>One of the faces of the Rocket League Bot Series — built for the arena, made for the show.</p>
+          <p class="bot-collection-note">Each bot gets a custom player card for you to collect after they complete their first season!</p>
+          <p class="bot-line">ORIGINAL BOT • NO WEAKNESSES ;)</p>
+        </div>
+        <div class="bot-copy-panel is-next" aria-hidden="true"></div>
+        <div class="bot-dots" aria-label="RLBS bot cards"></div>
       </div>
-    </div>
+    </div>>
   </div>
 </section>
 
@@ -370,4 +412,61 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 </div></div></section>
 
 <footer><div class="wrap">© 2026 RaZeRektU • Rocket League creator & RLBS founder • Indiana, USA</div></footer>
+<script>
+(() => {
+  const root = document.querySelector('.bot-feature');
+  if (!root) return;
+  const stage = root.querySelector('.bot-card-stage');
+  const copy = root.querySelector('.bot-copy');
+  const dots = root.querySelector('.bot-dots');
+  const cards = [
+    {img:'RLBS_card_RaZeBot.png', name:'MEET RAZE BOT', tag:'RLBS ORIGINAL', desc:'One of the faces of the Rocket League Bot Series — built for the arena, made for the show.', line:'ORIGINAL BOT • NO WEAKNESSES ;)'} ,
+    {img:'card-10veszn.png', name:'10VE SZN', tag:'RLBS BOT', desc:'An aggressive RLBS bot built around pressure, physical play, and taking the ball for itself.', line:'AGGRESSIVE • BALL HOG'},
+    {img:'card-alpha-metal.png', name:'ALPHA | METAL', tag:'RLBS BOT', desc:'A rotation-focused bot with a dangerous shot and a taste for clean attacking sequences.', line:'ROTATIONS • SHOT ACCURACY'},
+    {img:'card-ares.png', name:'ARES', tag:'RLBS BOT', desc:'A high-speed bot that loves the air, even when the aerials do not always connect.', line:'FAST AIR • AIR WHIFFS'},
+    {img:'card-blaucs-ozean.png', name:'BLAUCS OZEAN', tag:'RLBS BOT', desc:'A fast aerial-minded bot with strong control when the ball is in its hands.', line:'FAST AIR • BALL CONTROL'},
+    {img:'card-bummy.png', name:'BUMMY', tag:'RLBS BOT', desc:'Aerial confidence meets a tendency to leave the ground at exactly the wrong time.', line:'AIR SHOTS • GROUND WHIFFS'},
+    {img:'card-cyanites-galaxy.png', name:'CYANITES GALAXY', tag:'RLBS BOT', desc:'An offense-first bot that thrives on speed and aggressive rotations.', line:'FAST OFFENSE • ROTATIONS'},
+    {img:'card-euri.png', name:'EURI', tag:'RLBS BOT', desc:'A boost-conscious bot focused on managing resources and holding down the net.', line:'BOOST MANAGEMENT • NET DEFENSE'},
+    {img:'card-jessibot.png', name:'JESSIBOT', tag:'RLBS BOT', desc:'A boost-management specialist that can make the right play — when the shot is there.', line:'BOOST MANAGEMENT • ACCURACY'},
+    {img:'card-mello-yello.png', name:'MELLO YELLO', tag:'RLBS BOT', desc:'A fast bot that relies on quick movement and finding the right place at the right time.', line:'FAST • POSITIONING'},
+    {img:'card-otterbot.png', name:'OTTERBOT', tag:'RLBS BOT', desc:'A chaos-powered competitor with a playstyle that can be as unpredictable as it is entertaining.', line:'CHAOTIC • CHAOTIC'}
+  ];
+  const cardA = stage.querySelector('.is-current');
+  const cardB = stage.querySelector('.is-next');
+  let current = 0, timer;
+  let copyA = copy.querySelector('.bot-copy-panel.is-current');
+  let copyB = copy.querySelector('.bot-copy-panel.is-next');
+  const renderCopy = (el, d) => {
+    el.innerHTML = `<span class="tag">${d.tag}</span><h3>${d.name}</h3><p>${d.desc}</p><p class="bot-collection-note">Each bot gets a custom player card for you to collect after they complete their first season!</p><p class="bot-line">${d.line}</p>`;
+  };
+  const dotsEls = cards.map((d,i)=>{ const b=document.createElement('button'); b.className='bot-dot'+(i===0?' is-active':''); b.type='button'; b.setAttribute('aria-label',`Show ${d.name}`); b.addEventListener('click',()=>{go(i);}); dots.appendChild(b); return b; });
+  renderCopy(copyA,cards[0]);
+  function go(next){
+    if(next===current) return;
+    const d=cards[next];
+    // Card and text intentionally use different transition timing/direction.
+    const incomingCard = cardA.classList.contains('is-current') ? cardB : cardA;
+    const outgoingCard = cardA.classList.contains('is-current') ? cardA : cardB;
+    incomingCard.src=d.img; incomingCard.alt=`${d.name} RLBS character card`;
+    incomingCard.className='is-next';
+    void incomingCard.offsetWidth;
+    incomingCard.classList.remove('is-next'); incomingCard.classList.add('is-current');
+    outgoingCard.classList.remove('is-current'); outgoingCard.classList.add('is-exit');
+    setTimeout(()=>{outgoingCard.className='is-next';},840);
+    const incomingCopy = copyA.classList.contains('is-current') ? copyB : copyA;
+    const outgoingCopy = copyA.classList.contains('is-current') ? copyA : copyB;
+    renderCopy(incomingCopy,d); incomingCopy.className='bot-copy-panel is-next';
+    void incomingCopy.offsetWidth;
+    setTimeout(()=>{incomingCopy.classList.remove('is-next'); incomingCopy.classList.add('is-current');},120);
+    setTimeout(()=>{outgoingCopy.classList.remove('is-current'); outgoingCopy.classList.add('is-exit');},40);
+    setTimeout(()=>{outgoingCopy.className='bot-copy-panel is-next';},620);
+    current=next; dotsEls.forEach((x,i)=>x.classList.toggle('is-active',i===current));
+  }
+  function schedule(){clearInterval(timer); timer=setInterval(()=>go((current+1)%cards.length),6200)}
+  root.addEventListener('mouseenter',()=>clearInterval(timer));
+  root.addEventListener('mouseleave',schedule);
+  schedule();
+})();
+</script>
 </body></html>
