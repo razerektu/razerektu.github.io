@@ -4,100 +4,76 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RaZeRektU | Rocket League Creator & RLBS Founder</title>
-<meta name="description" content="RaZeRektU is a Rocket League creator, streamer, and founder/host of the Rocket League Bot Series (RLBS).">
-<meta name="keywords" content="RaZeRektU, RaZe, Rocket League, RLBS, Rocket League Bot Series, Rocket League streamer">
+<meta name="description" content="RaZeRektU is a Rocket League creator, streamer, and founder and host of the Rocket League Bot Series (RLBS).">
+<meta name="keywords" content="RaZeRektU, RaZe, Rocket League, RLBS, Rocket League Bot Series, Rocket League streamer, RaZe's Arena">
 <meta name="author" content="RaZeRektU">
 <meta property="og:title" content="RaZeRektU | Rocket League Creator">
-<meta property="og:description" content="Rocket League creator, streamer, and founder/host of Rocket League Bot Series (RLBS).">
+<meta property="og:description" content="Rocket League creator, streamer, and founder and host of Rocket League Bot Series (RLBS).">
 <meta property="og:type" content="website">
 <style>
-:root{--bg:#06070b;--panel:#0d111a;--line:#202938;--text:#f4f7fb;--muted:#9aa7ba;--accent:#00e5ff;--accent2:#8b5cf6}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 0%,#16213a 0,#06070b 42%);color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.6}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:auto;padding:0 24px}
-nav{position:sticky;top:0;z-index:10;background:rgba(6,7,11,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{height:68px;display:flex;align-items:center;justify-content:space-between}.brand{font-weight:900;letter-spacing:.08em}.brand span{color:var(--accent)}
-.navlinks{display:flex;gap:24px;color:var(--muted);font-size:14px}.navlinks a:hover{color:var(--accent)}
-.hero{min-height:78vh;display:grid;place-items:center;padding:90px 0}.eyebrow{color:var(--accent);font-weight:800;letter-spacing:.18em;text-transform:uppercase;font-size:13px}
-h1{font-size:clamp(48px,9vw,100px);line-height:.95;margin:18px 0;font-weight:950;letter-spacing:-.06em}
-.glow{color:var(--accent);text-shadow:0 0 35px rgba(0,229,255,.28)}.hero p{max-width:720px;color:var(--muted);font-size:19px}
-.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}.btn{padding:12px 18px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-weight:800}.btn.primary{background:var(--accent);color:#001014;border-color:var(--accent)}.btn:hover{transform:translateY(-2px)}
-section{padding:85px 0;border-top:1px solid rgba(255,255,255,.05)}h2{font-size:38px;margin:0 0 10px;letter-spacing:-.03em} .lead{color:var(--muted);max-width:720px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}.card{background:linear-gradient(180deg,rgba(16,22,34,.95),rgba(9,12,19,.95));border:1px solid var(--line);border-radius:14px;padding:20px}.card b{display:block;font-size:25px}.card small{color:var(--muted)}
-.mmr{margin-top:32px;width:100%;border-collapse:collapse;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}.mmr th,.mmr td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line)}.mmr th{color:var(--muted);font-size:13px;text-transform:uppercase;letter-spacing:.08em}.mmr tr:last-child td{border:0}
-.rlbs{display:grid;grid-template-columns:1.3fr .7fr;gap:22px;margin-top:30px}.rlbs .feature{padding:34px;border-radius:18px;border:1px solid #2a3b55;background:linear-gradient(135deg,#101b2c,#0a0d14)}.tag{display:inline-block;border:1px solid #294457;color:var(--accent);padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}
-.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:28px}.social{padding:24px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}.social strong{font-size:20px}.social p{color:var(--muted);margin:5px 0 0}
-footer{padding:45px 0;color:var(--muted);border-top:1px solid var(--line);font-size:14px}
-@media(max-width:800px){.grid{grid-template-columns:repeat(2,1fr)}.rlbs{grid-template-columns:1fr}.socials{grid-template-columns:1fr}.navlinks{display:none}}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:65px 0}h2{font-size:31px}}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+:root{--bg:#030507;--panel:#080d14;--panel2:#0c1420;--line:#193247;--cyan:#00e5ff;--blue:#4f86ff;--ice:#dff6ff;--text:#f5fbff;--muted:#8ea3b7}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#030507;color:var(--text);font-family:Rajdhani,Segoe UI,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(0,229,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,.035) 1px,transparent 1px);background-size:45px 45px;mask-image:linear-gradient(to bottom,#000,transparent 80%)}
+a{color:inherit;text-decoration:none}.wrap{width:min(1180px,calc(100% - 40px));margin:auto}
+nav{position:sticky;top:0;z-index:20;background:rgba(3,5,7,.88);backdrop-filter:blur(15px);border-bottom:1px solid #122433}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Orbitron;font-weight:900;letter-spacing:.08em;font-size:20px}.brand span{color:var(--cyan);text-shadow:0 0 18px rgba(0,229,255,.45)}
+.navlinks{display:flex;gap:28px;font-family:Orbitron;font-size:12px;letter-spacing:.08em;color:#9db1c4}.navlinks a:hover{color:var(--cyan)}
+.hero{min-height:calc(100vh - 76px);display:flex;align-items:flex-end;padding:0 0 85px;position:relative;isolation:isolate}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,5,7,.05) 30%,#030507 96%),linear-gradient(90deg,rgba(3,5,7,.2),transparent 55%,rgba(3,5,7,.25));z-index:-1}
+.hero-banner{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:-2;opacity:.96}
+.hero-content{max-width:760px}.eyebrow{font-family:Orbitron;color:var(--cyan);font-size:12px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+h1{font-family:Orbitron;font-size:clamp(45px,8vw,92px);line-height:.95;letter-spacing:-.055em;margin:16px 0;text-shadow:0 0 35px rgba(0,229,255,.2)}
+.glow{color:var(--ice);text-shadow:0 0 24px rgba(79,134,255,.55)}.hero p{font-size:20px;color:#b7c7d7;max-width:650px}.hero strong{color:#fff}
+.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}.btn{font-family:Orbitron;font-size:11px;letter-spacing:.06em;padding:13px 18px;border:1px solid #28445c;border-radius:7px;background:rgba(8,13,20,.82);font-weight:800;transition:.2s}.btn:hover{transform:translateY(-3px);border-color:var(--cyan);box-shadow:0 0 22px rgba(0,229,255,.14)}.btn.primary{background:var(--cyan);color:#001014;border-color:var(--cyan)}
+section{padding:100px 0;border-top:1px solid #0d1a25;position:relative}h2{font-family:Orbitron;font-size:clamp(30px,5vw,48px);margin:0 0 8px;letter-spacing:-.03em}.section-tag{font-family:Orbitron;color:var(--cyan);font-size:11px;letter-spacing:.18em}.lead{color:var(--muted);font-size:18px;max-width:740px}
+.logo-stage{display:grid;grid-template-columns:330px 1fr;gap:50px;align-items:center;margin-top:50px}.logo-box{background:radial-gradient(circle,#10203b 0,#05080d 65%);border:1px solid #193247;border-radius:20px;min-height:330px;display:grid;place-items:center;overflow:hidden;box-shadow:inset 0 0 60px rgba(0,100,255,.08)}.logo-box img{width:88%;max-height:320px;object-fit:contain}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px;margin-top:25px}.card{background:linear-gradient(145deg,rgba(12,20,32,.96),rgba(5,8,13,.96));border:1px solid var(--line);border-radius:12px;padding:19px;position:relative;overflow:hidden}.card:after{content:"";position:absolute;top:0;left:0;width:38%;height:2px;background:linear-gradient(90deg,var(--cyan),transparent)}.card b{display:block;font-family:Orbitron;font-size:24px}.card small{display:block;color:var(--muted);font-size:14px;margin-top:5px}
+.rlbs{margin-top:38px;display:grid;grid-template-columns:1.35fr .65fr;gap:20px}.feature{min-height:340px;border-radius:18px;border:1px solid #24415a;background:linear-gradient(135deg,rgba(12,24,40,.95),rgba(4,8,13,.96));padding:35px;position:relative;overflow:hidden}.feature:before{content:"";position:absolute;right:-15%;bottom:-45%;width:70%;height:130%;background:url("assets/logo-color.png") center/contain no-repeat;opacity:.11;transform:rotate(-8deg)}.feature>*{position:relative}.feature h3{font-family:Orbitron;font-size:32px;margin:12px 0}.feature p{color:#a8bacb;font-size:18px;max-width:580px}.tag{display:inline-block;border:1px solid #29627a;color:var(--cyan);padding:5px 9px;border-radius:5px;font-family:Orbitron;font-size:10px;letter-spacing:.14em}.side{display:flex;flex-direction:column;justify-content:center}.side img{width:100%;max-height:230px;object-fit:contain;filter:drop-shadow(0 0 20px rgba(79,134,255,.2))}
+.socials{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:30px}.social{padding:25px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(145deg,#0a1019,#05080d);transition:.2s}.social:hover{transform:translateY(-4px);border-color:#2c607b}.social strong{font-family:Orbitron;font-size:17px}.social p{color:var(--muted);margin:5px 0 0}
+footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
+@media(max-width:900px){.logo-stage{grid-template-columns:1fr}.logo-box{min-height:260px}.grid{grid-template-columns:repeat(2,1fr)}.rlbs{grid-template-columns:1fr}.side{display:none}}
+@media(max-width:600px){.wrap{width:min(100% - 26px,1180px)}.navlinks{display:none}.hero{min-height:720px;padding-bottom:55px}.hero-banner{object-position:center top;opacity:.82}.hero p{font-size:18px}.grid,.socials{grid-template-columns:1fr}.logo-box{min-height:230px}}
 </style>
 <script type="application/ld+json">
-{
- "@context":"https://schema.org",
- "@type":"Person",
- "name":"RaZeRektU",
- "alternateName":"RaZe",
- "description":"Rocket League creator, streamer, and founder/host of Rocket League Bot Series (RLBS).",
- "url":"https://www.twitch.tv/razerektu",
- "sameAs":[
-  "https://www.twitch.tv/razerektu",
-  "https://www.youtube.com/@RaZeRektU",
-  "https://www.tiktok.com/@razerektu"
-]
-}
+{"@context":"https://schema.org","@type":"Person","name":"RaZeRektU","alternateName":"RaZe","description":"Rocket League creator, streamer, and founder and host of Rocket League Bot Series (RLBS).","sameAs":["https://www.twitch.tv/razerektu","https://www.youtube.com/@RaZeRektU","https://www.tiktok.com/@razerektu"]}
 </script>
 </head>
 <body>
-<nav><div class="wrap nav"><a class="brand" href="#">RAZE<span>REKTU</span></a><div class="navlinks"><a href="#rocketleague">Rocket League</a><a href="#rlbs">RLBS</a><a href="#socials">Find RaZe</a></div></div></nav>
+<nav><div class="wrap nav"><a class="brand" href="#"><span>RAZE</span>REKTU</a><div class="navlinks"><a href="#rocketleague">ROCKET LEAGUE</a><a href="#rlbs">RLBS</a><a href="#socials">FIND RAZE</a></div></div></nav>
 
-<header class="hero"><div class="wrap">
+<header class="hero">
+<img class="hero-banner" src="assets/banner.png" alt="RaZeRektU branded banner">
+<div class="wrap hero-content">
 <div class="eyebrow">Rocket League Creator • Streamer • RLBS Founder</div>
 <h1>I'm <span class="glow">RaZeRektU.</span></h1>
-<p>Rocket League content creator, streamer, and the founder and host of the <strong>Rocket League Bot Series (RLBS)</strong>. Based in Indiana, USA.</p>
+<p>Rocket League content creator, streamer, and the founder and host of the <strong>Rocket League Bot Series (RLBS)</strong>.</p>
 <div class="buttons">
-<a class="btn primary" href="https://www.twitch.tv/razerektu" target="_blank" rel="noopener">Watch on Twitch</a>
-<a class="btn" href="https://www.youtube.com/@RaZeRektU" target="_blank" rel="noopener">YouTube</a>
-<a class="btn" href="https://www.tiktok.com/@razerektu" target="_blank" rel="noopener">TikTok</a>
+<a class="btn primary" href="https://www.twitch.tv/razerektu" target="_blank" rel="noopener">WATCH ON TWITCH</a>
+<a class="btn" href="https://www.youtube.com/@RaZeRektU" target="_blank" rel="noopener">YOUTUBE</a>
+<a class="btn" href="https://www.tiktok.com/@razerektu" target="_blank" rel="noopener">TIKTOK</a>
 </div>
 </div></header>
 
 <section id="rocketleague"><div class="wrap">
-<h2>Rocket League</h2><p class="lead">A multi-mode Grand Champion player with competitive experience across standard and Extra Modes playlists.</p>
-<div class="grid">
-<div class="card"><b>GC2</b><small>2v2 • 1583 MMR</small></div>
-<div class="card"><b>GC2</b><small>Hoops • 1157 MMR</small></div>
-<div class="card"><b>GC1</b><small>Rumble • 1199 MMR</small></div>
-<div class="card"><b>GC1</b><small>Snow Day • 1105 MMR</small></div>
-<div class="card"><b>GC1</b><small>Dropshot • 1056 MMR</small></div>
-<div class="card"><b>C2</b><small>3v3 • 1184 MMR</small></div>
-<div class="card"><b>D3</b><small>1v1 • 895 MMR</small></div>
-<div class="card"><b>—</b><small>Heatseeker • 690 MMR</small></div>
-</div>
-<table class="mmr"><thead><tr><th>Playlist</th><th>Rank</th><th>MMR</th></tr></thead><tbody>
-<tr><td>2v2</td><td>Grand Champion 2</td><td>1583</td></tr>
-<tr><td>Hoops</td><td>Grand Champion 2</td><td>1157</td></tr>
-<tr><td>Rumble</td><td>Grand Champion 1</td><td>1199</td></tr>
-<tr><td>Snow Day</td><td>Grand Champion 1</td><td>1105</td></tr>
-<tr><td>Dropshot</td><td>Grand Champion 1</td><td>1056</td></tr>
-<tr><td>3v3</td><td>Champion 2</td><td>1184</td></tr>
-<tr><td>1v1</td><td>Diamond 3</td><td>895</td></tr>
-<tr><td>Heatseeker</td><td>Unranked</td><td>690</td></tr>
-</tbody></table>
+<span class="section-tag">PLAYER PROFILE</span><h2>Rocket League</h2><p class="lead">A multi-mode Grand Champion player competing across standard and Extra Modes playlists.</p>
+<div class="logo-stage"><div class="logo-box"><img src="assets/logo-color.png" alt="RaZe logo"></div>
+<div><div class="grid">
+<div class="card"><b>GC2</b><small>2v2 • 1583 MMR</small></div><div class="card"><b>GC2</b><small>Hoops • 1157 MMR</small></div><div class="card"><b>GC1</b><small>Rumble • 1199 MMR</small></div><div class="card"><b>GC1</b><small>Snow Day • 1105 MMR</small></div>
+<div class="card"><b>GC1</b><small>Dropshot • 1056 MMR</small></div><div class="card"><b>C2</b><small>3v3 • 1184 MMR</small></div><div class="card"><b>D2</b><small>1v1 • 895 MMR</small></div><div class="card"><b>—</b><small>Heatseeker • 690 MMR</small></div>
+</div></div></div>
 </div></section>
 
-<section id="rlbs"><div class="wrap">
-<h2>Rocket League Bot Series</h2><p class="lead">RLBS is a Rocket League entertainment series built around bot competition and community-driven events.</p>
-<div class="rlbs"><div class="feature"><span class="tag">RLBS</span><h3>Rocket League Bot Series</h3><p>Founded, owned, and hosted by RaZeRektU. Follow the events, watch the matches, and join the community around the series.</p><a class="btn" href="https://www.youtube.com/@RaZeRektU" target="_blank" rel="noopener">Watch RLBS content</a></div>
-<div class="card"><h3>Creator</h3><p><strong>Owner / Founder / Host</strong></p><p style="color:var(--muted)">No RLCS participation. No current team or organization.</p></div></div>
-</div></section>
+<section id="rlbs"><div class="wrap"><span class="section-tag">FOUNDED & HOSTED BY RAZEREKTU</span><h2>Rocket League Bot Series</h2><div class="rlbs">
+<div class="feature"><span class="tag">RLBS</span><h3>BOT VS BOT. CHAOS INCLUDED.</h3><p>Rocket League Bot Series is a Rocket League entertainment series built around bot competition and community-driven events.</p><p><strong>Owner • Founder • Host</strong></p><a class="btn primary" href="https://www.youtube.com/@RaZeRektU" target="_blank" rel="noopener">WATCH RLBS</a></div>
+<div class="side"><img src="assets/raze_logo.png" alt="RaZe emblem"></div>
+</div></div></section>
 
-<section id="socials"><div class="wrap">
-<h2>Find RaZeRektU</h2><p class="lead">One creator. Three official platforms.</p>
+<section id="socials"><div class="wrap"><span class="section-tag">OFFICIAL CHANNELS</span><h2>Find RaZeRektU</h2><p class="lead">Follow the creator, watch the streams, and join RaZe's Arena.</p>
 <div class="socials">
-<a class="social" href="https://www.twitch.tv/razerektu" target="_blank" rel="noopener"><strong>Twitch</strong><p>Streams & live Rocket League</p></a>
-<a class="social" href="https://www.youtube.com/@RaZeRektU" target="_blank" rel="noopener"><strong>YouTube</strong><p>Videos & RLBS content</p></a>
-<a class="social" href="https://www.tiktok.com/@razerektu" target="_blank" rel="noopener"><strong>TikTok</strong><p>Short-form Rocket League content</p></a>
-</div>
-</div></section>
+<a class="social" href="https://www.twitch.tv/razerektu" target="_blank" rel="noopener"><strong>TWITCH</strong><p>Live streams & Rocket League</p></a>
+<a class="social" href="https://www.youtube.com/@RaZeRektU" target="_blank" rel="noopener"><strong>YOUTUBE</strong><p>Videos & RLBS content</p></a>
+<a class="social" href="https://www.tiktok.com/@razerektu" target="_blank" rel="noopener"><strong>TIKTOK</strong><p>Short-form Rocket League content</p></a>
+</div></div></section>
 
 <footer><div class="wrap">© 2026 RaZeRektU • Rocket League creator & RLBS founder • Indiana, USA</div></footer>
 </body></html>
