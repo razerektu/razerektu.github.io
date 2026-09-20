@@ -13,34 +13,80 @@ html,body{margin:0;padding:0;background:#030507;overflow:hidden}
 <iframe id="site" src="index-with-mmr.html" title="RaZeRektU Website"></iframe>
 <script>
 const iframe=document.getElementById('site');
+
 iframe.addEventListener('load',()=>{
   const d=iframe.contentDocument;
   if(!d)return;
 
   const style=d.createElement('style');
   style.textContent=`
-    #rocketleague .card b{font-family:'PirulenRG','PirulenCustom',Orbitron,sans-serif!important;letter-spacing:.02em!important}
+    /* Final RL rank layout/typography fixes */
+    #rocketleague .grid{
+      grid-template-columns:repeat(2,minmax(0,1fr))!important;
+      gap:13px!important;
+    }
+    #rocketleague .card{
+      min-width:0!important;
+      min-height:104px!important;
+      overflow:hidden!important;
+    }
+    #rocketleague .card b{
+      font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif!important;
+      font-size:25px!important;
+      font-weight:400!important;
+      line-height:1.05!important;
+      letter-spacing:.02em!important;
+      white-space:normal!important;
+      overflow-wrap:normal!important;
+      word-break:normal!important;
+    }
+    #rocketleague .card small{
+      white-space:normal!important;
+      line-height:1.25!important;
+    }
+
+    /* Social polish */
     #socials h2,#socials .social strong{letter-spacing:.055em!important}
     #socials .social{position:relative;overflow:hidden}
-    #socials .social-logo{position:absolute;right:24px;top:50%;transform:translateY(-50%);width:78px;height:78px;object-fit:contain;opacity:.8;pointer-events:none}
+    #socials .social-logo{
+      position:absolute;
+      right:24px;
+      top:50%;
+      transform:translateY(-50%);
+      width:78px;
+      height:78px;
+      object-fit:contain;
+      opacity:.8;
+      pointer-events:none;
+    }
     #socials .social strong,#socials .social p{position:relative;z-index:2}
-    @media(max-width:700px){#socials .social-logo{width:58px;height:58px;right:16px}#socials .social{padding-right:92px}}
+
+    @media(max-width:700px){
+      #rocketleague .grid{grid-template-columns:1fr!important}
+      #socials .social-logo{width:58px;height:58px;right:16px}
+      #socials .social{padding-right:92px}
+    }
   `;
   d.head.appendChild(style);
 
-  const fixSpelling=()=>{
+  const cleanText=()=>{
     const walker=d.createTreeWalker(d.body,NodeFilter.SHOW_TEXT);
     while(walker.nextNode()){
-      walker.currentNode.nodeValue=walker.currentNode.nodeValue.replaceAll('BLAUCS OZEAN','BLAUES OZEAN');
+      const node=walker.currentNode;
+      node.nodeValue=node.nodeValue.replaceAll('BLAUCS OZEAN','BLAUES OZEAN');
+      if(node.nodeValue.trim()==='>') node.nodeValue='';
     }
   };
-  fixSpelling();
+  cleanText();
 
   [...d.querySelectorAll('a')].forEach(a=>{
     const label=a.textContent.trim();
     if(label==='WATCH RLBS') a.href='https://discord.gg/ht4SaHGaf2';
     if(label==='JOIN THE COMMUNITY') a.href='https://discord.gg/8WpbjTtqhD';
-    if(label==='WATCH RLBS'||label==='JOIN THE COMMUNITY'){a.target='_blank';a.rel='noopener'}
+    if(label==='WATCH RLBS'||label==='JOIN THE COMMUNITY'){
+      a.target='_blank';
+      a.rel='noopener';
+    }
   });
 
   const icons={
@@ -48,12 +94,15 @@ iframe.addEventListener('load',()=>{
     YOUTUBE:'youtuberole.png',
     TIKTOK:'tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.webp'
   };
+
   d.querySelectorAll('#socials .social').forEach(card=>{
     const label=card.querySelector('strong')?.textContent.trim();
     const src=icons[label];
     if(!src||card.querySelector('.social-logo'))return;
     const img=d.createElement('img');
-    img.className='social-logo';img.src=src;img.alt='';
+    img.className='social-logo';
+    img.src=src;
+    img.alt='';
     card.appendChild(img);
   });
 });
