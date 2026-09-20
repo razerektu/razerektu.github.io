@@ -53,8 +53,8 @@ nav{position:sticky;top:0;z-index:20;background:rgba(3,5,7,.88);backdrop-filter:
 .hero-atmosphere{position:absolute;inset:0;background:url("hero-garage.png") center/cover no-repeat;opacity:.075;filter:brightness(.55) saturate(.65);mix-blend-mode:screen;z-index:-3;pointer-events:none}
 .hero-atmosphere:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 55%,transparent 0%,rgba(1,3,5,.35) 48%,rgba(1,3,5,.92) 100%)}
 .hero-car{position:absolute;bottom:-28px;width:min(48vw,820px);max-height:58%;object-fit:contain;opacity:.74;filter:brightness(.82) contrast(1.08) drop-shadow(0 18px 25px rgba(0,0,0,.7));mix-blend-mode:screen;z-index:-2;pointer-events:none;user-select:none}
-.hero-car-left{left:-8vw}
-.hero-car-right{right:-1vw;transform:scaleX(-1)}
+.hero-car-left{left:8vw}
+.hero-car-right{right:10vw;transform:scaleX(-1)}
 .hero-content{max-width:760px;position:relative;z-index:2}.eyebrow{font-family:Rajdhani,Segoe UI,sans-serif;color:var(--cyan);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
 h1{font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif;font-size:clamp(45px,8vw,92px);line-height:.95;letter-spacing:0;margin:16px 0 44px;position:relative;text-shadow:0 0 35px rgba(0,229,255,.2)}
 h1:after{content:"I'm RaZeRektU.";position:absolute;left:0;top:100%;font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif;font-size:inherit;line-height:.95;letter-spacing:inherit;color:rgba(223,246,255,.34);transform:scaleY(-1);transform-origin:top;filter:blur(1.2px);opacity:.42;mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 72%);-webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.5),transparent 72%);pointer-events:none}
@@ -84,12 +84,10 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 @media(prefers-reduced-motion:reduce){.minecraft-track{animation:none;transform:translateX(0)}}
 .rlbs-logo{width:min(430px,85%);max-height:180px;object-fit:contain;display:block;margin:0 0 18px;filter:drop-shadow(0 0 24px rgba(79,134,255,.18))}
 
-/* RaZe typography map */
-.minecraft-title,
-.minecraft-copy h3 {
-  font-family: 'MinecraftCustom', sans-serif !important;
-}
-#rocketleague h2 {
+/* RaZe typography map — keep section identity fonts, use Bitsumishi for content headings */
+#rocketleague h2,
+#socials h2,
+#socials .social strong {
   font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
   letter-spacing: 0 !important;
 }
@@ -109,10 +107,24 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
   font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
   letter-spacing: 0 !important;
 }
-.rlbs-title,
-#rlbs h2,
-#rlbs h3 {
+
+/* RLBS section title keeps its original RLBS font */
+.rlbs-title {
   font-family: 'PirulenCustom', Orbitron, sans-serif !important;
+  letter-spacing: .02em !important;
+}
+
+/* Minecraft section title keeps its original Minecraft font */
+#minecraft .minecraft-title {
+  font-family: 'MinecraftCustom', sans-serif !important;
+}
+
+/* RLBS/Minecraft content headings use the new RaZe display font */
+.rlbs-copy h3,
+.bot-copy h3,
+.minecraft-copy h3 {
+  font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
+  letter-spacing: 0 !important;
 }
 
 /* RLBS showcase */
@@ -142,7 +154,7 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 .bot-card{width:min(100%,330px);max-height:500px;object-fit:contain;filter:drop-shadow(0 0 28px rgba(48,112,255,.18))}
 .bot-copy h3{font-family:'PirulenCustom',Orbitron,sans-serif!important;font-size:34px;margin:12px 0}
 .bot-copy p{color:#a8bacb;font-size:18px;max-width:650px}
-.bot-line{font-family:'DESIGNER',Orbitron,sans-serif!important;color:#35d7ff!important;letter-spacing:.08em}
+.bot-line{font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif!important;color:#35d7ff!important;letter-spacing:0}
 @media(max-width:900px){
   .minecraft-feature{grid-template-columns:1fr}
   .minecraft-logo{min-height:240px}
@@ -165,9 +177,9 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
   letter-spacing: .08em !important;
   line-height: 1.2 !important;
 }
-#minecraft .minecraft-title, #minecraft .minecraft-copy h3 {
-  letter-spacing: .06em !important;
-}
+#minecraft .minecraft-title { letter-spacing: .06em !important; }
+#minecraft .minecraft-copy h3 { letter-spacing: 0 !important; }
+#minecraft .minecraft-copy .btn { font-family: 'Bitsumishi','DESIGNER',Orbitron,sans-serif !important; }
 
 /* Rocket League section typography */
 #rocketleague h2 {
@@ -188,6 +200,52 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"RaZeRektU","alternateName":"RaZe","description":"Rocket League creator, streamer, and founder and host of Rocket League Bot Series (RLBS).","sameAs":["https://www.twitch.tv/razerektu","https://www.youtube.com/@RaZeRektU","https://www.tiktok.com/@razerektu"]}
 </script>
+
+<style>
+/* v21 typography correction: section identity fonts + new display font for content */
+#rlbs .rlbs-title {
+  font-family: 'PirulenCustom', Orbitron, sans-serif !important;
+  letter-spacing: .02em !important;
+}
+#rlbs .rlbs-copy h3,
+#rlbs .bot-copy h3,
+#rlbs .rlbs-custom-bot strong,
+#rlbs .rlbs-copy .btn,
+#rlbs .bot-copy .btn {
+  font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+#rlbs .section-tag,
+#rlbs .tag,
+#rlbs .rlbs-copy p,
+#rlbs .bot-copy p {
+  font-family: Rajdhani, 'Segoe UI', sans-serif !important;
+}
+#rlbs .bot-line {
+  font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+#minecraft .minecraft-title {
+  font-family: 'MinecraftCustom', sans-serif !important;
+  letter-spacing: .06em !important;
+}
+#minecraft .minecraft-copy h3,
+#minecraft .minecraft-copy .btn {
+  font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+#socials h2,
+#socials .social strong {
+  font-family: 'Bitsumishi', 'DESIGNER', Orbitron, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+#socials .section-tag,
+#socials .lead,
+#socials .social p {
+  font-family: Rajdhani, 'Segoe UI', sans-serif !important;
+}
+</style>
+
 </head>
 <body>
 <nav><div class="wrap nav"><a class="brand" href="#"><span>RAZE</span>REKTU</a><div class="navlinks"><a href="#rocketleague">ROCKET LEAGUE</a><a href="#rlbs">RLBS</a><a href="#minecraft">MINECRAFT</a><a href="#socials">FIND RAZE</a></div></div></nav>
@@ -226,7 +284,7 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 
     <div class="rlbs-showcase">
       <div class="rlbs-copy">
-        <img class="rlbs-logo-tight" src="rlbs-logo.png" alt="Rocket League Bot Series logo">
+        <img class="rlbs-logo-tight" src="rlbs-logo-v21.png" alt="Rocket League Bot Series logo">
         <h3>BOT VS BOT. CHAOS INCLUDED.</h3>
         <p>Rocket League Bot Series is a Rocket League entertainment series built around bot competition and community-driven events.</p>
         <div class="rlbs-custom-bot">
