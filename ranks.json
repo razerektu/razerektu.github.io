@@ -1,10 +1,34 @@
 {
-  "1v1": "Diamond II",
-  "2v2": "Grand Champion I",
-  "3v3": "Champion II",
-  "Hoops": "Grand Champion II",
-  "Rumble": "Grand Champion I",
-  "Dropshot": "Grand Champion I",
-  "Snow Day": "Grand Champion I",
-  "4v4 Quads": "Diamond II"
+  "1v1": {
+    "rank": "Diamond II",
+    "mmr": 895
+  },
+  "2v2": {
+    "rank": "Grand Champion I",
+    "mmr": 1517
+  },
+  "3v3": {
+    "rank": "Champion II",
+    "mmr": 1196
+  },
+  "Hoops": {
+    "rank": "Grand Champion II",
+    "mmr": 1157
+  },
+  "Rumble": {
+    "rank": "Grand Champion I",
+    "mmr": 1199
+  },
+  "Dropshot": {
+    "rank": "Grand Champion I",
+    "mmr": 1056
+  },
+  "Snow Day": {
+    "rank": "Grand Champion I",
+    "mmr": 1105
+  },
+  "4v4 Quads": {
+    "rank": "Diamond II",
+    "mmr": 849
+  }
 }
