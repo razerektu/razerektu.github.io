@@ -97,12 +97,12 @@ iframe.addEventListener('load',()=>{
     const links=d.querySelectorAll('a');
     links.forEach(link=>{
       const label=link.textContent.trim().replace(/\\s+/g,' ');
-      if(label==='WATCH RLBS'){
+      if(label.includes('WATCH RLBS')){
         link.href='https://discord.gg/ht4SaHGaf2';
         link.target='_blank';
         link.rel='noopener';
       }
-      if(label==='JOIN THE COMMUNITY'){
+      if(label.includes('JOIN THE COMMUNITY')){
         link.href='https://discord.gg/8WpbjTtqhD';
         link.target='_blank';
         link.rel='noopener';
