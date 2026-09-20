@@ -281,10 +281,7 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 .bot-copy p{color:#a8bacb;font-size:18px;max-width:650px}
 .bot-line{font-family:'Bitsumishi','DESIGNER',Orbitron,sans-serif!important;color:#35d7ff!important;letter-spacing:0}
 .bot-collection-note{color:#dceaf5!important;font-family:Rajdhani,'Segoe UI',sans-serif!important;font-size:16px!important;line-height:1.45;margin:18px 0 4px;max-width:620px}
-.bot-dots{display:flex;gap:7px;margin-top:18px;position:relative;z-index:5}
-.bot-dot{width:7px;height:7px;border:1px solid #3d617c;border-radius:50%;background:transparent;padding:0;cursor:pointer;transition:.2s}
-.bot-dot.is-active{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 10px rgba(0,229,255,.45)}
-@media(max-width:900px){.bot-feature{grid-template-columns:1fr;padding:30px 22px}.bot-card-wrap{min-height:440px}.bot-card-stage{height:440px}.bot-copy{min-height:280px}.bot-dots{justify-content:center}}
+@media(max-width:900px){.bot-feature{grid-template-columns:1fr;padding:30px 22px}.bot-card-wrap{min-height:440px}.bot-card-stage{height:440px}.bot-copy{min-height:280px}}
 @media(prefers-reduced-motion:reduce){.bot-card-stage img,.bot-copy-panel{transition:none!important}}
 </style>
 </head>
@@ -360,7 +357,6 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
           <p class="bot-line">ORIGINAL BOT • NO WEAKNESSES ;)</p>
         </div>
         <div class="bot-copy-panel is-next" aria-hidden="true"></div>
-        <div class="bot-dots" aria-label="RLBS bot cards"></div>
       </div>
     </div>>
   </div>
@@ -418,7 +414,6 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
   if (!root) return;
   const stage = root.querySelector('.bot-card-stage');
   const copy = root.querySelector('.bot-copy');
-  const dots = root.querySelector('.bot-dots');
   const cards = [
     {img:'RLBS_card_RaZeBot.png', name:'MEET RAZE BOT', tag:'RLBS ORIGINAL', desc:'One of the faces of the Rocket League Bot Series — built for the arena, made for the show.', line:'ORIGINAL BOT • NO WEAKNESSES ;)'} ,
     {img:'card-10veszn.png', name:'10VE SZN', tag:'RLBS BOT', desc:'An aggressive RLBS bot built around pressure, physical play, and taking the ball for itself.', line:'AGGRESSIVE • BALL HOG'},
@@ -440,7 +435,6 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
   const renderCopy = (el, d) => {
     el.innerHTML = `<span class="tag">${d.tag}</span><h3>${d.name}</h3><p>${d.desc}</p><p class="bot-collection-note">Each bot gets a custom player card for you to collect after they complete their first season!</p><p class="bot-line">${d.line}</p>`;
   };
-  const dotsEls = cards.map((d,i)=>{ const b=document.createElement('button'); b.className='bot-dot'+(i===0?' is-active':''); b.type='button'; b.setAttribute('aria-label',`Show ${d.name}`); b.addEventListener('click',()=>{go(i);}); dots.appendChild(b); return b; });
   renderCopy(copyA,cards[0]);
   function go(next){
     if(next===current) return;
@@ -461,7 +455,7 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
     setTimeout(()=>{incomingCopy.classList.remove('is-next'); incomingCopy.classList.add('is-current');},120);
     setTimeout(()=>{outgoingCopy.classList.remove('is-current'); outgoingCopy.classList.add('is-exit');},40);
     setTimeout(()=>{outgoingCopy.className='bot-copy-panel is-next';},620);
-    current=next; dotsEls.forEach((x,i)=>x.classList.toggle('is-active',i===current));
+    current=next;
   }
   function schedule(){clearInterval(timer); timer=setInterval(()=>go((current+1)%cards.length),6200)}
   root.addEventListener('mouseenter',()=>clearInterval(timer));
