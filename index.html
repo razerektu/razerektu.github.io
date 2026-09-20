@@ -59,15 +59,15 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
 
 #minecraft{position:relative;overflow:hidden;isolation:isolate;background:#03070a}
 .minecraft-bg{position:absolute;inset:0;overflow:hidden;z-index:0;pointer-events:none}
-.minecraft-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,10,.14),rgba(3,7,10,.26));z-index:2}
+.minecraft-bg::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,7,10,.06),rgba(3,7,10,.14));z-index:2}
 .minecraft-track{display:flex;gap:18px;width:max-content;height:100%;align-items:stretch;animation:minecraftSlide 82s linear infinite;will-change:transform}
-.minecraft-bg img{flex:0 0 min(48vw,720px);width:min(48vw,720px);height:100%;object-fit:cover;opacity:.43;filter:saturate(.98) brightness(1);border-radius:14px}
+.minecraft-bg img{flex:0 0 min(48vw,720px);width:min(48vw,720px);height:100%;object-fit:cover;opacity:.56;filter:saturate(1.02) brightness(1.08);border-radius:14px}
 @keyframes minecraftSlide{from{transform:translateX(0)}to{transform:translateX(calc(-50% - 9px))}}
 .minecraft-wrap{position:relative;z-index:3}
-.minecraft-feature{margin-top:38px;display:grid;grid-template-columns:360px 1fr;gap:30px;align-items:center;padding:28px;border:1px solid rgba(38,74,55,.72);border-radius:18px;background:rgba(5,12,16,.43);box-shadow:0 20px 70px rgba(0,0,0,.28);overflow:hidden;backdrop-filter:blur(2px)}
+.minecraft-feature{margin-top:38px;display:grid;grid-template-columns:360px 1fr;gap:30px;align-items:center;padding:28px;border:1px solid rgba(38,74,55,.72);border-radius:18px;background:rgba(5,12,16,.30);box-shadow:0 20px 70px rgba(0,0,0,.28);overflow:hidden;backdrop-filter:blur(2px)}
 .minecraft-logo{min-height:300px;display:grid;place-items:center;background:radial-gradient(circle,rgba(45,105,72,.16),transparent 68%);border-radius:14px}
 .minecraft-logo img{width:92%;max-height:330px;object-fit:contain;filter:drop-shadow(0 0 28px rgba(80,255,150,.12))}
-.minecraft-copy h3{font-family:'MinecraftCustom',sans-serif!important;font-size:32px;letter-spacing:.19em;margin:12px 0;line-height:1.12}
+.minecraft-copy h3{font-family:'MinecraftCustom',sans-serif!important;font-size:32px;letter-spacing:.06em;margin:12px 0;line-height:1.12}
 .minecraft-copy p{color:#b4c8ba;font-size:18px;max-width:650px}
 @media(prefers-reduced-motion:reduce){.minecraft-track{animation:none;transform:translateX(0)}}
 .rlbs-logo{width:min(430px,85%);max-height:180px;object-fit:contain;display:block;margin:0 0 18px;filter:drop-shadow(0 0 24px rgba(79,134,255,.18))}
@@ -121,6 +121,18 @@ footer{padding:45px 0;color:#63788b;border-top:1px solid #10202c;font-size:14px}
   .bot-feature{grid-template-columns:1fr}
   .rlbs-helm-watermark{width:900px;right:-280px;top:380px}
 }
+
+<style>
+/* v14 polish: Minecraft labels match the navigation font. */
+#minecraft .section-tag, #minecraft .minecraft-copy .tag {
+  font-family: Rajdhani, 'Segoe UI', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: .08em !important;
+}
+#minecraft .minecraft-title, #minecraft .minecraft-copy h3 {
+  letter-spacing: .06em !important;
+}
+</style>
 </style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Person","name":"RaZeRektU","alternateName":"RaZe","description":"Rocket League creator, streamer, and founder and host of Rocket League Bot Series (RLBS).","sameAs":["https://www.twitch.tv/razerektu","https://www.youtube.com/@RaZeRektU","https://www.tiktok.com/@razerektu"]}
