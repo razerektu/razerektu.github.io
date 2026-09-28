@@ -98,6 +98,28 @@ iframe.addEventListener('load',()=>{
     img.src=src;
   });
 
+  const addCommunityDiscordSocial=()=>{
+    const socials=d.querySelector('#socials .socials, #socials .grid');
+    if(!socials || d.getElementById('community-discord-social')) return;
+    const cards=[...socials.querySelectorAll('.social')];
+    const tiktok=cards.find(card=>card.querySelector('strong')?.textContent.trim()==='TIKTOK');
+    if(!tiktok) return;
+    const card=tiktok.cloneNode(true);
+    card.id='community-discord-social';
+    const strong=card.querySelector('strong');
+    const p=card.querySelector('p');
+    if(strong) strong.textContent='DISCORD';
+    if(p) p.textContent='Join the RaZeRektU community';
+    card.querySelectorAll('a').forEach(a=>{
+      a.href='https://discord.gg/Z4XRezmNnN';
+      a.target='_blank';
+      a.rel='noopener';
+    });
+    const logo=card.querySelector('.social-logo');
+    if(logo) logo.remove();
+    socials.appendChild(card);
+  };
+
   const addCommunityDiscordButton=()=>{
     const buttons=[...d.querySelectorAll('a.btn')];
     const tiktok=buttons.find(link=>link.textContent.trim().replace(/\\s+/g,' ')==='TIKTOK');
@@ -130,10 +152,12 @@ iframe.addEventListener('load',()=>{
   };
 
   addCommunityDiscordButton();
+  addCommunityDiscordSocial();
   fixLinks();
   fixBotAndStrayText();
   new MutationObserver(()=>{
     addCommunityDiscordButton();
+    addCommunityDiscordSocial();
     fixLinks();
     fixBotAndStrayText();
   }).observe(d.body,{subtree:true,childList:true,characterData:true});
