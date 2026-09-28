@@ -43,6 +43,11 @@ iframe.addEventListener('load',()=>{
     }
     #socials .social strong,#socials .social p{position:relative;z-index:2}
 
+    /* Direct community Discord hero button */
+    #community-discord-hero{
+      text-decoration:none!important;
+    }
+
     /* Slightly brighter RLBS atmosphere */
     #rlbs{
       background:
@@ -93,6 +98,20 @@ iframe.addEventListener('load',()=>{
     img.src=src;
   });
 
+  const addCommunityDiscordButton=()=>{
+    const buttons=[...d.querySelectorAll('a.btn')];
+    const tiktok=buttons.find(link=>link.textContent.trim().replace(/\\s+/g,' ')==='TIKTOK');
+    if(!tiktok || d.getElementById('community-discord-hero')) return;
+    const button=d.createElement('a');
+    button.id='community-discord-hero';
+    button.className='btn';
+    button.href='https://discord.gg/Z4XRezmNnN';
+    button.target='_blank';
+    button.rel='noopener';
+    button.textContent='DISCORD';
+    tiktok.insertAdjacentElement('afterend',button);
+  };
+
   const fixLinks=()=>{
     const links=d.querySelectorAll('a');
     links.forEach(link=>{
@@ -110,9 +129,11 @@ iframe.addEventListener('load',()=>{
     });
   };
 
+  addCommunityDiscordButton();
   fixLinks();
   fixBotAndStrayText();
   new MutationObserver(()=>{
+    addCommunityDiscordButton();
     fixLinks();
     fixBotAndStrayText();
   }).observe(d.body,{subtree:true,childList:true,characterData:true});
