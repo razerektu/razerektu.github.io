@@ -110,11 +110,17 @@ iframe.addEventListener('load',()=>{
     const p=card.querySelector('p');
     if(strong) strong.textContent='DISCORD';
     if(p) p.textContent='Join the RaZeRektU community';
-    card.querySelectorAll('a').forEach(a=>{
-      a.href='https://discord.gg/Z4XRezmNnN';
-      a.target='_blank';
-      a.rel='noopener';
-    });
+    if(card.tagName==='A'){
+      card.href='https://discord.gg/Z4XRezmNnN';
+      card.target='_blank';
+      card.rel='noopener';
+    }else{
+      card.querySelectorAll('a').forEach(a=>{
+        a.href='https://discord.gg/Z4XRezmNnN';
+        a.target='_blank';
+        a.rel='noopener';
+      });
+    }
     const logo=card.querySelector('.social-logo');
     if(logo) logo.remove();
     socials.appendChild(card);
